@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0025)http://localhost/phptest/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body waid71fa0d88-5390-4b5b-a2f4-e45fa93d85e2="SA password protect entry checker"><p> le jeu N°1 <strong>Nom  : Super Mario Bros</strong> Appertient à : <mark> Florent </mark> <br>
+ disponible sur :<strong> <!--? = $data['console'];?--></strong><br>
+  Prix :4<br>
+  Nombre de joueur maximum =&gt; 1<br>
+  Les Commentaires : Un jeu d'anthologie !  </p>
+<p> le jeu N°2 <strong>Nom  : Sonic</strong> Appertient à : <mark> Patrick </mark> <br>
+ disponible sur :<strong> <!--? = $data['console'];?--></strong><br>
+  Prix :2<br>
+  Nombre de joueur maximum =&gt; 1<br>
+  Les Commentaires : Pour moi, le meilleur jeu du monde !  </p>
+<p> le jeu N°3 <strong>Nom  : Zelda : ocarina of time</strong> Appertient à : <mark> Florent </mark> <br>
+ disponible sur :<strong> <!--? = $data['console'];?--></strong><br>
+  Prix :15<br>
+  Nombre de joueur maximum =&gt; 1<br>
+  Les Commentaires : Un jeu grand, beau et complet comme on en voit rarement de nos jours  </p>
+<p> le jeu N°4 <strong>Nom  : Mario Kart 64</strong> Appertient à : <mark> Florent </mark> <br>
+ disponible sur :<strong> <!--? = $data['console'];?--></strong><br>
+  Prix :25<br>
+  Nombre de joueur maximum =&gt; 4<br>
+  Les Commentaires : Un excellent jeu de kart !  </p>
+<p> le jeu N°5 <strong>Nom  : Super Smash Bros Melee</strong> Appertient à : <mark> Michel </mark> <br>
+ disponible sur :<strong> <!--? = $data['console'];?--></strong><br>
+  Prix :55<br>
+  Nombre de joueur maximum =&gt; 4<br>
+  Les Commentaires : Un jeu de baston délirant !  </p>
+<h1> Ajout d'un article</h1>
+<form method="Post" action="http://localhost/phptest/">
+Nom <br><br>
+<input type="text" name="name" placeholder="nom du jeu" value=""><br><br>
+Proprietaire<br><br>
+ <input type="text" name="prop" placeholder="possesseur" value=""><br><br>
+Plateform <br><br>
+<input type="text" name="consolType" placeholder="Plateform" value=""><br><br>
+Prix <br><br>
+<input type="text" name="prix" value=""><br><br>
+nbre_joueur<br><br>
+<input type="text" name="players" value=""><br><br>
+lachez un commentaire<br><br>
+ <textarea rows="5" name="com" placeholder="lachez un com sur votre jeu" value=""></textarea><br><br>
+<input type="submit" name="add" value="Enregistrer ! "><input type="submit" name="upload" value="Modifier"><input type="submit" name="del" value="Delete">
+<br><br>
+</form> <br><br>
+
+<form method="get" action="http://localhost/phptest/">
+GESTION :<br><br>
+<input type="text" name="id" placeholder="Entrer le numero"><br><br>
+
+<input type="submit" name="see" value="view">
+
+
+</form>
+<h2> RECHERCHE </h2>
+<form method="POST" action="http://localhost/phptest/">
+	<input type="text" name="qprops" placeholder="rechercher le Proprietaire"><br><br>
+	<input type="text" name="qprix" placeholder="montant"><br>
+	<input type="submit" name="search">
+</form>
+
+
+</body></html>
