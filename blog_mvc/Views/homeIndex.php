@@ -1,49 +1,5 @@
+<?=$title = "Mon super Blog";?><br><br>
 
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-    <title>blogs MVC</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="Style/style.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template     <link href="css/blog-home.css" rel="stylesheet">
--->
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div class="container">
-        <a class="navbar-brand" href="index.php">Blogs</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Blogs
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <!-- Page Content -->
     <div class="container">
@@ -65,12 +21,12 @@
               ?> 
            
           <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <img class="card-img-top" src="picture/<?=$value->avt;?>" alt="Card image cap" >
             <div class="card-body">
               <h2 class="card-title"><?=$value->titre;?></h2>
               <p class="card-text"><?=$value->post;?></p>
 
-              <a href="topics.php?id=<?=$value->ID;?>" class="btn btn-primary">Read More &rarr;</a>
+              <a href="index/topics/<?=$value->ID;?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
             Posted At  :  <?=$value->Posted_at;?> By 
@@ -189,15 +145,9 @@
 
     </div>
     <!-- /.container -->
-
+  <?php require "template/collecTemplate.php";?>
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; @jukoo</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
+   <?php include'template/footer.php';?>
  
 
   </body>

@@ -1,9 +1,9 @@
 <?php 
  require "Modeles/globalQuery.php" ; 
 
-if(isset($_GET['id']) &&  !empty($_GET['id']) && $_GET['id'] > 0 ) { 
+if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) { 
 
- 		$id  = htmlspecialchars($_GET['id']) ; 
+ 		$id  = htmlspecialchars($_GET['topics']) ; 
 
 	    $currenTopics = selectCurrenTopic($id) ; 
 
@@ -22,11 +22,14 @@ if(isset($_GET['id']) &&  !empty($_GET['id']) && $_GET['id'] > 0 ) {
 	 		
 	 	        insertComments($id,$pseudo,$comment) ; 
 
-	 	        header('location:topics.php?id='.$id);
+	 	        #buugs here
+	 	        //---------
+	 	        header('location:index.php');
+	 	        //---------
 
 			 	}else { 
 
-			 	   $warning ="";
+			 	   $warning ="desole vous pouvez pas poster un commentaire vide";
 			 	}
 
 	    }else { 
@@ -38,9 +41,6 @@ if(isset($_GET['id']) &&  !empty($_GET['id']) && $_GET['id'] > 0 ) {
 	 
    }	 		
 
-
-	   
-	 
 }else { 
 
 	header('location:index.php');

@@ -9,9 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BlocSpace</title>
+    <title><?=$title;?></title>
 
     <!-- Bootstrap core CSS -->
+   
     <link href="Style/style.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -23,7 +24,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Blogs</a>
+        <a class="navbar-brand" href="index.php">Blogs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"> blogs</span>
         </button>
@@ -46,4 +47,4 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav><br><br>

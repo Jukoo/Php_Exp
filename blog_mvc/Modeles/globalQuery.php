@@ -23,12 +23,11 @@ function getTopics ($start , $final){
 
 	global $dataBase ; 
 	
-	$ql = $dataBase->prepare("SELECT ID ,auteur, titre, post, DATE_FORMAT( post_at , '%d %M %y à %Hh:%im:%Ss') as Posted_at  FROM Topics ORDER BY ID desc  LIMIT :start , :final") or Kill($dataBase) ; 
+	$ql = $dataBase->prepare("SELECT ID ,auteur, titre, post ,avt, DATE_FORMAT( post_at , '%d %M %y à %Hh:%im:%Ss') as Posted_at  FROM Topics ORDER BY ID desc  LIMIT ?,?") or Kill($dataBase) ; 
 
-	$ql->bindParam('start' , $start, PDO::PARAM_INT) ; 
-    $ql->bindParam('final',$final,PDO::PARAM_INT) ; 
+    BindLimitParams($ql,$start,$final)->execute();
 
-    $ql->execute(); 
+   
 
     $data = $ql->fetchAll() ; 
 
@@ -42,7 +41,7 @@ function selectCurrenTopic ($id) {
 
 	global $dataBase ; 
 
-	$ql = $dataBase->prepare("SELECT auteur, titre, post, DATE_FORMAT( post_at , '%d %M %y à %Hh:%im:%Ss') as Posted_at  FROM Topics WHERE ID = ?")or Kill($dataBase) ;
+	$ql = $dataBase->prepare("SELECT auteur, titre, post,avt,DATE_FORMAT( post_at , '%d %M %y à %Hh:%im:%Ss') as Posted_at  FROM Topics WHERE ID = ?")or Kill($dataBase) ;
 
 	$ql->execute([$id]) ; 
 
@@ -69,7 +68,7 @@ function insertComments($UrlID ,$pseudo, $comment ) {
 
 //# Selection du commentaire correspondans pour chaque tôpic 
 
-function selectComments ($relatedUrl ) { 
+function selectComments ($relatedUrl) { 
 
 	global $dataBase ; 
 
