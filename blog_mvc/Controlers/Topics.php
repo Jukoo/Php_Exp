@@ -23,7 +23,7 @@ function Topics(){
 	 	      			$comment = htmlspecialchars($_POST['commentary']) ; 
 	 		
 			 	        insertComments($id,$pseudo,$comment) ; 
-			 	        #fixed
+
 			 	        header('location:index-topics-'.$id);
 			 	}else { 
 			 	  		 $warning ="desole vous pouvez pas poster un commentaire vide";
