@@ -1,7 +1,9 @@
 <?php 
  require "Modeles/globalQuery.php" ; 
 
-if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) { 
+function Topics(){ 
+
+	if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) { 
 
  		$id  = htmlspecialchars($_GET['topics']) ; 
 
@@ -12,41 +14,36 @@ if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) {
 	    if(isset($_POST) && !empty($_POST)) { 
 
 	    
-	     if (isset($_POST['pseudo']) && !empty($_POST['pseudo'])) { 
+	    	if (isset($_POST['pseudo']) && !empty($_POST['pseudo'])) { 
 
-	 	   $pseudo  = htmlspecialchars($_POST['pseudo']) ; 
+	 	   		$pseudo  = htmlspecialchars($_POST['pseudo']) ; 
 
-	 	    if (isset($_POST['commentary']) && !empty($_POST['commentary'])) { 
+	 	   		if (isset($_POST['commentary']) && !empty($_POST['commentary'])) { 
    
-	 	      $comment = htmlspecialchars($_POST['commentary']) ; 
+	 	      			$comment = htmlspecialchars($_POST['commentary']) ; 
 	 		
-	 	        insertComments($id,$pseudo,$comment) ; 
+			 	        insertComments($id,$pseudo,$comment) ; 
 
-	 	        #buugs here
-	 	        //---------
-	 	        header('location:index.php');
-	 	        //---------
-
+			 	        header('location:index-topics-'.$id);
 			 	}else { 
-
-			 	   $warning ="desole vous pouvez pas poster un commentaire vide";
+			 	  		 $warning ="desole vous pouvez pas poster un commentaire vide";
 			 	}
 
-	    }else { 
+	   		 }else { 
 	 	
-	 	   $warning= "Veuillez fournir votre pseudo" ; 
-
-	    }
+	 	  		$warning= "Veuillez fournir votre pseudo" ; 
+	   		 }
  	
 	 
-   }	 		
+		}	 		
 
-}else { 
+	}else { 
 
-	header('location:index.php');
-}
-
-
-
+		header('location:index.php');
+	}
 
 include "Views/blogPost.php";
+
+
+}
+

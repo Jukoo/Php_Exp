@@ -25,9 +25,8 @@ function getTopics ($start , $final){
 	
 	$ql = $dataBase->prepare("SELECT ID ,auteur, titre, post ,avt, DATE_FORMAT( post_at , '%d %M %y à %Hh:%im:%Ss') as Posted_at  FROM Topics ORDER BY ID desc  LIMIT ?,?") or Kill($dataBase) ; 
 
-    BindLimitParams($ql,$start,$final)->execute();
-
-   
+		BindLimitParams($ql,$start,$final)->execute() ; 
+    
 
     $data = $ql->fetchAll() ; 
 
@@ -68,7 +67,7 @@ function insertComments($UrlID ,$pseudo, $comment ) {
 
 //# Selection du commentaire correspondans pour chaque tôpic 
 
-function selectComments ($relatedUrl) { 
+function selectComments ($relatedUrl ) { 
 
 	global $dataBase ; 
 

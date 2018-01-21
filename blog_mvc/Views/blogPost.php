@@ -1,50 +1,5 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Blog Post</title>
-
-    <!-- Bootstrap core CSS -->
-    <base href="/blog_mvc/">
-    <link href="Style/style.min.css" rel="stylesheet">
-  
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div class="container">
-        <a class="navbar-brand" href="index.php">Blogs</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">Blogs
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+<?=$title = "Blog Post ";?><br><br>
+<?php include"template/collecTemplate.php";?>
     <!-- Page Content -->
     <div class="container">
 
@@ -71,7 +26,7 @@
           <hr>
 
           <!-- Preview Image -->
-          <img class="img-fluid rounded" src="picture/<?=$currenTopics->avt;?>" alt="">
+          <img class="img-fluid rounded" src="public/picture/<?=$currenTopics->avt;?>" alt="">
 
           <hr>
 
@@ -106,7 +61,7 @@
            
          
           <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="picture/<?=$coms->avatar;?>"
+            <img class="d-flex mr-3 rounded-circle" src="public/picture/<?=$coms->avatar;?>"
             height ="50px" width="50px" alt="">
             <div class="media-body">
               <h5 class="mt-0 text-muted"><?=$coms->author ;?></h5>
