@@ -21,12 +21,12 @@
               ?> 
            
           <div class="card mb-4">
-            <img class="card-img-top" src="picture/<?=$value->avt;?>" alt="Card image cap" >
+            <img class="card-img-top" src="public/picture/<?=$value->avt;?>" alt="Card image cap" >
             <div class="card-body">
               <h2 class="card-title"><?=$value->titre;?></h2>
               <p class="card-text"><?=$value->post;?></p>
 
-              <a href="index/topics/<?=$value->ID;?>" class="btn btn-primary">Read More &rarr;</a>
+              <a href="index-topics-<?=$value->ID;?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
             Posted At  :  <?=$value->Posted_at;?> By 
@@ -47,7 +47,7 @@
             if ($i == $currentPage) { 
                 echo  $i;
             }else { 
-              echo "<a href=index.php?page=".$i.">".$i."-<a>" ;
+              echo "<a href=index-page-".$i.">".$i."-<a>" ;
             }
           }
           ?>
@@ -56,7 +56,7 @@
               <a class="page-link" href="index.php">&larr;Newer</a>
             </li>
             <li class="page-item">
-              <a class="page-link" href="index.php?page=<?=$totalPage;?>">Older &rarr;</a>
+              <a class="page-link" href="index-page-<?=$totalPage;?>">Older &rarr;</a>
             </li4
           </ul>
 

@@ -1,7 +1,9 @@
 <?php 
- include"Modeles/globalQuery.php"  ; 
+include"Modeles/globalQuery.php"  ; 
 
-if (isset($_POST) && !empty($_POST)) { 
+function GlobalHome (){ 
+
+	if (isset($_POST) && !empty($_POST)) { 
 
 	$err = array() ; 
 
@@ -65,5 +67,8 @@ foreach ($topics as $key => $value) {
 
 
  include"Views/homeIndex.php"; 
+
+ return  $AllPost;
+}
 
 
