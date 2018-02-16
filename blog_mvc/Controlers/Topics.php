@@ -1,49 +1,68 @@
 <?php 
- require "Modeles/globalQuery.php" ; 
+Use juko\blogs\TopicManager; 
 
-function Topics(){ 
+include"Modeles/TopicManager.php"  ; 
 
-	if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) { 
+Class Topics { 
 
- 		$id  = htmlspecialchars($_GET['topics']) ; 
+	public function topics () { 
 
-	    $currenTopics = selectCurrenTopic($id) ; 
+		$TopicManager  = new TopicManager() ; 
+		
+		if(isset($_GET['topics']) &&  !empty($_GET['topics']) && $_GET['topics'] > 0 ) { 
 
-	    $relatedCom = selectComments($id);
+	 		$id  = htmlspecialchars($_GET['topics']) ; 
 
-	    if(isset($_POST) && !empty($_POST)) { 
+		    $currenTopics = $TopicManager->selectCurrenTopic($id) ; 
 
-	    
-	    	if (isset($_POST['pseudo']) && !empty($_POST['pseudo'])) { 
+		    $relatedCom = $TopicManager->selectComments($id);
 
-	 	   		$pseudo  = htmlspecialchars($_POST['pseudo']) ; 
+		    if(isset($_POST) && !empty($_POST)) { 
 
-	 	   		if (isset($_POST['commentary']) && !empty($_POST['commentary'])) { 
-   
-	 	      			$comment = htmlspecialchars($_POST['commentary']) ; 
-	 		
-			 	        insertComments($id,$pseudo,$comment) ; 
+		    
+		    	if (isset($_POST['pseudo']) && !empty($_POST['pseudo'])) { 
 
-			 	        header('location:index-topics-'.$id);
-			 	}else { 
-			 	  		 $warning ="desole vous pouvez pas poster un commentaire vide";
-			 	}
+		 	   		$pseudo  = htmlspecialchars($_POST['pseudo']) ; 
 
-	   		 }else { 
+		 	   		if (isset($_POST['commentary']) && !empty($_POST['commentary'])) { 
+	   
+		 	      			$comment = htmlspecialchars($_POST['commentary']) ; 
+		 		
+				 	        $TopicManager->insertComments($id,$pseudo,$comment) ; 
+
+				 	        header('location:index-topics-'.$id);
+				 	}else { 
+				 	  		 $warning ="desole vous pouvez pas poster un commentaire vide";
+				 	}
+
+		   		 }else { 
+		 	
+		 	  		$warning= "Veuillez fournir votre pseudo" ; 
+		   		 }
 	 	
-	 	  		$warning= "Veuillez fournir votre pseudo" ; 
-	   		 }
- 	
-	 
-		}	 		
+			}	 		
+
+		}else { 
+
+			header('location:index.php');
+		}
+
+	if(isset($_GET['q']) && !empty($_GET['q'])){ 
+
+		$query  = htmlspecialchars($_GET['q']) ; 
+
+		 $request = Search($query) !==null ? Search($query):null ; 
+
 
 	}else { 
 
-		header('location:index.php');
+		$warn = "Aucune recherche effectue" ; 
 	}
 
-include "Views/blogPost.php";
+
+	include "Views/blogPost.php";
 
 
+	}
 }
 

@@ -1,32 +1,28 @@
 <?php  
-require"Modeles/connexion.php" ;
 
-$lenPost=0;
+function autoload($class) { 
+
+	require "Controlers/".$class.'.php' ; 
+}
+
+spl_autoload_register('autoload');
+
 try { 
 	
-	if (!isset($_GET['topics'])) { 
+	if (!isset($_GET['topics']) && !isset($_GET['panel'])) { 
 
-		require"Controlers/home.php";
-		$lenPost = GlobalHome() ; 
+				home::GlobalHome() ;
 		
     }elseif (isset($_GET['topics']) && !empty($_GET['topics'])) {
 
- 			 $post = explode("-", $_GET['topics']) ; 
+					$topic = new Topics(); 
+					$topic->topics();
 
- 			 if (is_numeric($post[0])) { 
- 			 		$post = (int)$post[0] ;
+	}elseif (isset($_GET['panel'])) {
 
- 			 	if ($post){ 
-					require'Controlers/Topics.php';
-					Topics();
-	 			}else { 
-	 					throw new Exception("ERROr");
-	 			}
-	 			
- 			 }else { 
- 			 	throw new Exception("ERROr");
- 			 	
- 			 }
+			
+			AdminPanel::AdminControl() ; 
+
 	}else { 
 
 		throw new Exception("error404notFound");

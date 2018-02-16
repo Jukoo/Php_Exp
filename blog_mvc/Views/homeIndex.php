@@ -1,30 +1,23 @@
 <?=$title = "Mon super Blog";?><br><br>
-
-
-    <!-- Page Content -->
-    <div class="container">
+ <?php require "template/collecTemplate.php";?>
 
       <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-md-6 ">
+        <div class="col-md-7 ">
 
           <h1 class="my-4">BlogSpace
             <small>Share your Idea ! </small>
           </h1>
 
           <!-- Blog Post -->
-          <?php 
-            foreach ($topics as $value) {
-
-
-              ?> 
+          <?php foreach ($topics as $value) :?> 
            
           <div class="card mb-4">
             <img class="card-img-top" src="public/picture/<?=$value->avt;?>" alt="Card image cap" >
             <div class="card-body">
               <h2 class="card-title"><?=$value->titre;?></h2>
-              <p class="card-text"><?=$value->post;?></p>
+              <p class="card-text"><?=substr($value->post,0 , 100) ;?>...</p>
 
               <a href="index-topics-<?=$value->ID;?>" class="btn btn-primary">Read More &rarr;</a>
             </div>
@@ -34,11 +27,7 @@
             </div>
           </div>
 
-           <?php 
-
-            }
-
-          ?>
+           <?php endforeach;?>
 
           <!-- Pagination -->
           <?php 
@@ -63,80 +52,44 @@
         </div>
 
         <!-- Sidebar Widgets Column -->
-        <div class="col-md-6">
+        <div class="col-md-5">
 
-          <!-- Search Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Topic </h5>
-            <div class="card-body">
-              
-              <form action="" method="post" class="form-control"> 
-                  
-                  <input type="text" name="autor" placeholder="Auteur" class="form-control"><br><br> 
-                  <input type="text" name="title" placeholder="Titre" class="form-control"><br><br>
-                  
-                  <textarea name="contains" id="" cols="30" rows="8" class="form-control" placeholder="type your text ... "></textarea><br><br>
-                  <input type="submit" value ="Post&rarr;" class ="btn btn-primary"><br>
-                   <div class="card-footer text-muted">
-                    <?php if (isset($err))  { 
-                        foreach ($err as $value) {
-                           ?>
-                            <ul>
-                              <li class="alert-warning"><?=$value;?></li>
-                            </ul>
-                           <?php   
-                         }
-                    }
-                   ?>
-                  </div>
-              </form>
-              
-            </div>
-
-          </div>
+ 
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <small class="card-header">Search</small>
+           
             <div class="card-body">
               <div class="row">
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
+                <div class="col-lg-12">
+                   <ul class="list-unstyled mb-0 " align="center">
+  
+                  <?php if(isset($_GET['q']) && $_GET['q']!== null){  
+                      foreach ($request as $q) :
+                  ?>
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="index-topics-<?=$q->ID;?>"><?=$q->titre;?></a>
                     </li>
-                    <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
-                  </ul>
+                <?php 
+                    endforeach;
+                  }else  { 
+
+                    ?>
+                       <li><?= isset($warn)?? $warn ; ?></li>
+                    <?php
+                    
+                  }
+                    ?>
+                      
+                  </u
                 </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
-                </div>
+                
               </div>
             </div>
           </div>
 
-          <!-- Side Widget -->
-          <div class="card my-4">
-            <h5 class="card-header">Side Widget</h5>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-            </div>
-          </div>
+       
 
         </div>
 
@@ -145,7 +98,7 @@
 
     </div>
     <!-- /.container -->
-  <?php require "template/collecTemplate.php";?>
+ 
     <!-- Footer -->
    <?php include'template/footer.php';?>
  

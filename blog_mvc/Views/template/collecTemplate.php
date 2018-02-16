@@ -13,9 +13,10 @@
 
     <!-- Bootstrap core CSS -->
    <base href="/remote/blog_mvc/">
-    <link href="public/Style/style.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--<link href="public/Style/style.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    Custom styles for this template -->
   
   </head>
 
@@ -29,7 +30,14 @@
           <span class="navbar-toggler-icon"> blogs</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
+
           <ul class="navbar-nav ml-auto">
+            <form action="" method ="GET" class="form-inline">
+            <input type="text" placeholder="search" name ="q" class="form-control col-md-8"><br>
+            <div class="col-auto">
+            <input type="submit" value ="Go&rarr;" class ="btn btn-primary">
+            </div>
+            </form>
             <li class="nav-item active">
               <a class="nav-link" href="#">
                 <span class="sr-only">(current)</span>
@@ -39,7 +47,7 @@
               <a class="nav-link" href="index.php">BlogSpace</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="index.php?panel">AdminPanel</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
@@ -48,3 +56,4 @@
         </div>
       </div>
     </nav><br><br>
+      <div class="container">

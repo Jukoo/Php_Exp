@@ -1,7 +1,8 @@
 <?=$title = "Blog Post ";?><br><br>
+
 <?php include"template/collecTemplate.php";?>
     <!-- Page Content -->
-    <div class="container">
+  
 
       <div class="row">
              
@@ -14,7 +15,7 @@
 
           <!-- Author -->
           <p class="lead">
-            by
+            by 
             <a href="#"><?=$currenTopics->auteur;?></a>
           </p>
 
@@ -32,8 +33,14 @@
 
           <!-- Post Content -->
           <small class="lead"><?=$currenTopics->post;?></small><br><br>
+          <div>
+            <a href="index-topics-<?=$currenTopics->ID;?>" class="btn btn-primary "><small>Likes(15)</smlall></a>
+           <a href="index-topics-<?=$currenTopics->ID;?>" class="btn btn-danger "><small>Dislikes(3)</small></a><br><br>
+
+          </div>
+          
       
-          <div class="card md-6">
+          <div class="card md-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
               <form method ="POST" >
@@ -55,12 +62,14 @@
          
         
       <!-- /.row -->
+
       </div>
-         <div class="col-md-4">
+         <div class="col-xs-6">
+          <h2 class="mt-0 text-muted"> Comments </h2><br>
            <?php foreach($relatedCom as $coms) { ?>
            
          
-          <div class="media mb-4">
+          <div class="media mb-8">
             <img class="d-flex mr-3 rounded-circle" src="public/picture/<?=$coms->avatar;?>"
             height ="50px" width="50px" alt="">
             <div class="media-body">
@@ -70,9 +79,44 @@
           </div>
             <hr>
           <?php }?>
+         <!-- <div class="card my-4">
+            <small class="card-header">Search</small>
+           
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-12">
+                 <ul class="list-unstyled mb-0 " align="center">
+  
+                  <?php if(isset($_GET['q']) && $_GET['q']!== null){  
+
+                    
+                  ?>
+                    <li>
+                      <a href="index-topics-<?=$request->ID;?>"><?=$request->titre;?></a>
+                    </li>
+                <?php 
+       
+                  }else  { 
+
+                    ?>
+                       <li><?= isset($warn)? $warn :null ;?></li>
+                    <?php
+                    
+                  }
+                    ?>
+                      
+                  </ul>-->
+                </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
           </div>
 
+
     </div>
+
     <!-- /.container -->
   </div>
     <!-- Footer -->

@@ -1,74 +1,60 @@
 <?php 
-include"Modeles/globalQuery.php"  ; 
 
-function GlobalHome (){ 
+USE \juko\blogs\HomeRequest; 
 
-	if (isset($_POST) && !empty($_POST)) { 
+include"Modeles/HomeRequest.php"; 
 
-	$err = array() ; 
+class home { 
 
-	if (isset($_POST['autor']) && !empty($_POST['autor'])) { 
 
-		$autor = htmlspecialchars($_POST['autor']) ; 
-		if (isset($_POST['title']) && !empty($_POST['title'])) { 
+	static function GlobalHome (){ 
 
-		$title = htmlspecialchars($_POST['title']) ; 
+		$BlogManager = new HomeRequest() ; 
+		
+		$PostperPage = 5 ;
+		 
+		$AllPost = $BlogManager->CountEntry() ; 
 
-		if (isset($_POST['contains']) && !empty($_POST['contains'])) { 
-			$contains = htmlspecialchars($_POST['contains']);
+		$totalPage =ceil($AllPost->total/$PostperPage);
+
+		if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <=$totalPage) { 
+
+			$_GET['page'] = (int)($_GET['page']) ; 
+
+			$currentPage = $_GET['page'] ; 
 
 		}else { 
-			$err['fromContains']="Votre Topic est Vide" ; 
+
+			$currentPage = 1;
 		}
+
+		$start = ($currentPage-1) *$PostperPage ; 
+
+		$topics = $BlogManager->getTopics($start,$PostperPage) ; 
+
+		foreach ($topics as $key => $value) {
+
+			$topics[$key]->auteur = htmlspecialchars($value->auteur) ; 
+			$topics[$key]->titre = htmlspecialchars($value->titre) ; 
+			$topics[$key]->post = htmlspecialchars($value->post) ; 
+			$topics[$key]->Posted_at = htmlspecialchars($value->Posted_at) ; 
+
+	 	}
+
+		if(isset($_GET['q']) && !empty($_GET['q'])){ 
+
+			 $query  = htmlspecialchars($_GET['q']) ; 
+
+			 $request = $BlogManager->Search($query) !==null ? $BlogManager->Search($query):null ; 
+
 
 		}else { 
-			$err['fromTitle']="il faut absolument un titre ! ";
+
+			$warn = "Aucune recherche effectue" ; 
 		}
 
-	    }else{ 
+		 include"Views/homeIndex.php"; 
 
-	    $err['fromAutor'] ="Vous devez fournir votre nom " ; 	
-	    }
-	    if (empty($err) || !isset($err)) { 
-	    	InsertTopic($autor,$title,$contains) ; 
-	    	header("location:index.php") ; 
-	    }
+		 return  $AllPost;
+	}
 }
-$PostperPage = 5 ; 
-$AllPost = CountEntry() ; 
-
-$totalPage =ceil($AllPost->total/$PostperPage);
-
-if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <=$totalPage) { 
-
-	$_GET['page'] = (int)($_GET['page']) ; 
-
-	$currentPage = $_GET['page'] ; 
-
-}else { 
-
-	$currentPage = 1;
-}
-
-$start = ($currentPage-1) *$PostperPage ; 
-
-$topics = getTopics($start,$PostperPage) ; 
-
-foreach ($topics as $key => $value) {
-
-	$topics[$key]->auteur = htmlspecialchars($value->auteur) ; 
-	$topics[$key]->titre = htmlspecialchars($value->titre) ; 
-	$topics[$key]->post = htmlspecialchars($value->post) ; 
-	$topics[$key]->Posted_at = htmlspecialchars($value->Posted_at) ; 
-
-}	
-
-//die(var_dump($topics));
-
-
- include"Views/homeIndex.php"; 
-
- return  $AllPost;
-}
-
-
