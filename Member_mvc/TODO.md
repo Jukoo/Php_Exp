@@ -1,25 +1,24 @@
 #TODO 
-  -[x] Rebuild des Pages 
 
-  -[x] Ajout des preference de navigation
+-[x] Rebuild des Pages 
+
+* [x] Ajout des preference de navigation
  
-  -[x] refonte du section profils et modif 
+* [x] refonte du section profils et modif 
 
-  -[x] debug de l'affichage 
+* [x] debug de l'affichage 
 
-  -[ ] Amelioration de la page de setting  + systeme d'upload 
+* [ ] Amelioration de la page de setting  + systeme d'upload 
 
-  -[ ] affichage des infos de l'utilisateur 
+* [ ] affichage des infos de l'utilisateur 
 
-  -[ ] modif + rappelle de mot de passe 
+* [ ] modif + rappelle de mot de passe 
 
-  -[ ] confirmation  de compte 
+* [ ] confirmation  de compte 
 
-  -[ ] mise en place des jointures 
+* [ ] mise en place des jointures 
 
-  **HARDCORE** 
-
-  -[ ] Ajaxification des pages 
+* [ ] Ajaxification des pages 
    
-##COLECTION   ![SAUVEGARDE Utile]:
+
   
