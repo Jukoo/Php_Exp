@@ -1,0 +1,47 @@
+/**
+ * file name : style 
+ * Extension  : css 
+ * author  : juko 
+ */ 
+
+@import url('https://fonts.googleapis.com/css?family=Caveat|Molengo');
+
+body {
+
+ font-family : arial ;  
+ background-color :whitesmoke ; 
+ padding : 0 ; margin :0 ; 
+ line-height: 24px ; 
+ font-size : 12px;   
+ background-image : url("../img/grid.png"); 
+ background-color : radial-gradient(circle at center, white, whitesmoke);
+}
+nav { 
+    border-bottom : 1px solid firebrick ; 
+    box-shadow : 2px azure ;  
+}
+/*.nav-top {
+    position : fixed ; 
+    top : 0 ; 
+    width : 100% ; 
+}
+.row {
+
+    top : 125px ; 
+
+}*/
+
+.list-categories {
+
+    border-left : 1px solide black ; 
+
+}
+.Items-views {
+
+    border :1px solide gray  ; 
+}
+
+.Authentificate {
+
+    background-image : url("public/img/animated.gif") ; 
+} 
