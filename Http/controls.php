@@ -14,7 +14,10 @@ require "Middleware/MsgDisplay.php" ;
 
 class Controls extends CrossfailX{
 
-    const GLOBAL_PATH = "Resources/pages/" ; 
+    const GLOBAL_PATH      = "Resources/pages/" ; 
+    const SESSION_SIZE     = 20 ; 
+    const AWAITING_REFRESH = 4 ; 
+    #const HOST             = $_SERVER["HTTP_HOST"] ; 
 
     /**
      * the index Default Page :: all item will be listed there 
@@ -37,24 +40,20 @@ class Controls extends CrossfailX{
      */ 
     
     public static function AuthRegister() {
-
-        
+ 
         if(isset($_POST)  && !empty($_POST)) {
 
             @define("POS_EMAIL_INPUTFIELD",1); 
             @define("POS_PSWD_INPUTFIELD" ,2); 
             $MAIL["email::Addr"] = []; 
             $PASS["pass::hash"]  = [];
-            #$PSD["UNIQ:x:PSD"]   = [];   
             $Error_trigger = []; 
+
             forEach($_POST as $indexk => $val) {
-            
                  parent::sp_char($val) ; 
                  @array_push($MAIL["email::Addr"],  $indexk  == "e-mail" ? SecureAuth::Check_mail_address($val) : null);
                  @array_push($PASS["pass::hash"] ,$indexk == "pswd"? SecureAuth::Encrypted_pass($val) : null);
-                 #@array_push($PSD["UNIQ:x:PSD"] , $indexk == "psdname" ?parent::sp_char($val) : null ) ;   
                 if ( $val == null ){
-                    
                   $Error_trigger["empty_field"] = "Ooops you did some mistake in the formular please check  ";   
                 }   
             }
@@ -64,6 +63,7 @@ class Controls extends CrossfailX{
             }
              
             if (empty($Error_trigger)) {
+
                 RequestStorage::User_Register(
                     parent::sp_char($_POST["psdname"]),
                     $MAIL["email::Addr"][POS_EMAIL_INPUTFIELD] , 
@@ -72,27 +72,40 @@ class Controls extends CrossfailX{
                     parent::sp_char($_POST["city"]) 
                 ) ; 
                 MsgDisplay::info_statement(" well done " , "success") ; 
-                
-                $_SESSION["login"] = SecureAuth::warranty_session_access(20);
-                 
-                @header("Location:index.php?p=".$_SESSION["login"]) ; 
+                $_SESSION["login"] = SecureAuth::USID(self::SESSION_SIZE) ;  #warranty_session_access(self::SESSION_SIZE);
+                @header("Location:index.php?log&SID_token=".$_SESSION["login"]) ; 
 
-            }else {
-                
+            }else {   
                 forEach ($Error_trigger as $mistake => $content) {
             
                     MsgDisplay::info_statement($content , "error") ; 
                 }
             }
-           
        }
         
         include self::GLOBAL_PATH."/register.php"; 
     }
 
-    public static function logIn (){
-    
+    public  static function logIn (){
+        if (isset($_POST) && !empty($_POST)) {
+            $email_or_psd   = parent::sp_char($_POST["emailPsd"]) ; 
+            $keyLog         = parent::sp_char($_POST["pswd"]) ; 
+            $data_concerned = RequestStorage::unlock_account($email_or_psd) ; 
+            if($data_concerned["email"] ==  "" ) { 
+                MsgDisplay::info_statement("mail doesn't existe" , "error") ; 
+                @header("refresh:".self::AWAITING_REFRESH."; url=index.php?OAuth"); 
+                MsgDisplay::info_statement("you' ll be redirected in Authentification section" , "success") ;
+                
+            } else {
+                if( SecureAuth::Pswd_match($keyLog, $data_concerned["passeword"])){
+                    $_SESSION["surf"] = SecureAuth::USID(self::SESSION_SIZE) ; 
+                    @sleep(2) ;
+                    @header("Location:index.php?USID=".$_SESSION["surf"]) ;  
+                }else MsgDisplay::info_statement("Identifier or password incorrect" ,"error") ; 
+            } 
+        }
         
-    
+        
+     include self::GLOBAL_PATH."/connexion.php"  ; 
     } 
 }

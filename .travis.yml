@@ -1,0 +1,18 @@
+---
+language: php
+php :
+    - 7.0
+    - 7.1
+    - 7.2
+os: linux
+before_install: 
+    - sudo apt update
+    - sudo apt install tcl 
+install:
+    - wget http://download.redis.io/releases/redis-2.8.19.tar.gz
+    - tar xzvf redis-2.8.19.tar.gz
+    - cd redis-2.8.9
+    - make 
+    - sudo apt install composer --assume-yes
+    - composer install --no-interaction
+    - composer require predis/predis

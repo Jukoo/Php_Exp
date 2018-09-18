@@ -23,7 +23,7 @@ class SecureAuth  extends CrossFailX {
      * @param integer  $size 
      * @return string
      */
-    public static function warranty_session_access (int $size = null) {
+    private  static function warranty_session_access (int $size = null) {
     
         return  (! @is_null($size))? @substr(@str_shuffle(@str_repeat(self::KeyGen, $size)), 0 , $size): @substr(@str_shuffle(@str_repeat(self::KeyGen, self::COST)), 0 , self::DEFAULT_SIZE) ;  
 
@@ -52,7 +52,31 @@ class SecureAuth  extends CrossFailX {
             return filter_var(parent::sp_char($e_mail) , FILTER_VALIDATE_EMAIL) ? parent::sp_char($e_mail) : " " ; 
         }
     }
+    
+    /**
+     * matching  the password in login param 
+     * @param string $form_pswd , string $hashed_pswd 
+     * @return boolean 
+     */ 
 
-
+    public static function Pswd_match($pswd , $hashed_pswd ) {
+    
+        $is_matching= false  ; 
+        
+        if (password_verify($pswd , $hashed_pswd)) {
+        
+             return !$is_matching ; 
+        } 
+    }
+    
+    /**
+     * give a random  character  as value  for Session 
+     * @param int $size
+     * @return string 
+     */ 
+    public static function USID (int $size) {
+        
+        return self::warranty_session_access($size) ; 
+    }
 
 }

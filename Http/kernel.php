@@ -22,6 +22,4 @@
 
  # Display view 
  
-@define ("DISPLAY"  , require "Resources/pages/Layout/Default.php") ; 
-
-echo " dsadsad" ; 
+@define ("DISPLAY"  , require "Resources/pages/Layout/Default.php") ;  

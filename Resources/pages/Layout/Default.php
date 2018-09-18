@@ -1,3 +1,4 @@
+<?@session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +24,8 @@
             <img src="public/img/jklogo.png">
                Jukoo
          </div></li>
-        <li><a href="index.php?OAuth" class="btn-small">singIn or LogIn</a></li>
+        <li><a href="index.php?OAuth" class="btn-small">sing Up</a></li>
+        <li><a href="index.php?log" class="btn-small">Log In</a></li>
       </ul>
     </div>
   </nav>
@@ -64,7 +66,7 @@
 <div class="container">
 <? endif ?>
   <div class="row">
-    <? if (!isset($_GET["OAuth"])) : ?>
+    <? if (isset($_GET["p"]) && !empty($_GET["p"])) : ?>
     <div class="list-categories col s2  card small">
       <h4>Profil</h4>
       <div class="name">

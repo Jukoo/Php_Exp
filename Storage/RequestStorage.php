@@ -1,4 +1,6 @@
-<? 
+<?
+#!/usr/bin/php7.2.5 
+#
 require "accesStorage.php"; 
 
 /**

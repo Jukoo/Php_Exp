@@ -14,13 +14,16 @@ if (empty($_GET) or  ! isset($_GET)){
     $title ="AuthRegister" ; 
     Controls::AuthRegister(); 
     
-}elseif (isset($_GET["p"]) && $_GET["p"] == $_SESSION["login"]){
+}elseif (isset($_GET["log"])  ||  !empty($_GET["SID_token"])){
+    $title = "log in " ; 
+    Controls::logIn() ; 
 
-    Controls::AuthRegister(); 
-
+}else{
+    @header($_SERVER["SERVER_PROTOCOL"] ."404 NOT FOUND") ; 
+     
 }
-
 $Contents = @ob_get_clean() ; 
 
 
 require "Resources/pages/Layout/Default.php" ; 
+

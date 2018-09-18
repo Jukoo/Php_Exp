@@ -1,0 +1,13 @@
+{
+    "name": "root/pecom",
+    "description": "share items in same space",
+    "authors": [
+        {
+            "name": "jukoo",
+            "email": "funscript@outlook.fr"
+        }
+    ],
+    "require": {
+        "predis/predis": "^1.1"
+    }
+}

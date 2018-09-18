@@ -8,7 +8,7 @@
    _______________________________________________
  */
 
-@define("DB_host" , "localhost") ; 
+@define("DB_host" , $_SERVER["HTTP_HOST"]) ; 
 @define("DB_name" , "Ecom") ; 
 @define("DB_ENCODE" , "utf8") ; 
 @define("DB_DEFAULT_USER" , "root") ; 
@@ -22,4 +22,4 @@
 
 ##### FETCH MODE #####
 
-//@define("ARRAY_TO_OBJ" ,[PDO::DEFAULT_FETCH_MODE => PDO::FETCH_OBJ])  ;
+@define("ARRAY_TO_OBJ" ,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ])  ;
