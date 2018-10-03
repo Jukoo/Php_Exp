@@ -17,11 +17,14 @@ class RequestStorage extends Connexion {
          return parent::SQl_drop_down(parent::Dsn()) ;
     } 
     /**
-     *
-     * @param 
-     * @return 
+     * list all item in Home Page 
+     * @param void 
+     * @return array data 
      */ 
-    public static function listAllitems ()  {} 
+    public static function listAllitems ()  {
+    
+    
+    } 
 
     /**
      *
@@ -91,4 +94,7 @@ class RequestStorage extends Connexion {
         return $data_comparaison ; 
 
     }
+
+
+  
 }

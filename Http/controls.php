@@ -5,7 +5,7 @@
 require "Storage/RequestStorage.php" ; 
 require "Middleware/Authentification.php" ; 
 require "Middleware/MsgDisplay.php" ; 
-
+require "Middleware/AdminPanel.php" ; 
 /**
  * @class Controls @extends to CrossfailX 
  *----------------------------------------
@@ -86,10 +86,21 @@ class Controls extends CrossfailX{
         include self::GLOBAL_PATH."/register.php"; 
     }
 
+    /**
+     * connect the user to  main home
+     * @param  void
+     * @return void 
+     */ 
     public  static function logIn (){
         if (isset($_POST) && !empty($_POST)) {
             $email_or_psd   = parent::sp_char($_POST["emailPsd"]) ; 
-            $keyLog         = parent::sp_char($_POST["pswd"]) ; 
+            $keyLog         = parent::sp_char($_POST["pswd"]) ;
+             
+            if (Backlog::adminAme($email_or_psd) && Backlog::AdminPass($keyLog)) {
+                
+                @header("Location:index.php?b4ck0ff1C3=activated") ; 
+            }
+
             $data_concerned = RequestStorage::unlock_account($email_or_psd) ; 
             if($data_concerned["email"] ==  "" ) { 
                 MsgDisplay::info_statement("mail doesn't existe" , "error") ; 
@@ -103,9 +114,32 @@ class Controls extends CrossfailX{
                     @header("Location:index.php?USID=".$_SESSION["surf"]) ;  
                 }else MsgDisplay::info_statement("Identifier or password incorrect" ,"error") ; 
             } 
-        }
-        
-        
+        } 
      include self::GLOBAL_PATH."/connexion.php"  ; 
     } 
+
+    /**
+     * 
+     */
+    public static function certified_usr () {
+        #list all item for user registred 
+        
+        include self::GLOBAL_PATH."/home.php" ; 
+    }
+
+    /**
+     * Disconnect the user 
+     */ 
+    public static function Disconnect_user () {
+    
+        if (isset($_GET["DisOAuth"])) {
+            @session_destroy() ; 
+            @header("Location:index.php");
+             
+        } 
+    } 
+
+    
+
+
 }

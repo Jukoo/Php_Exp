@@ -1,5 +1,5 @@
 
-  <h4> Welcome to Service OAuth : </h4>
+  <img src= "public/img/registernow.png" >
 <div class="row">
 
 <!--SING IN -->
@@ -8,7 +8,7 @@
 
   <div class="col s6">
 
-    <h6> INSCRIPTION </h6>
+    <h6> Sign Up  </h6>
   <form method="post">
     <div class="form-group">
       <label for="inputAddress2">Pseudo</label>
@@ -56,4 +56,17 @@
 </div>
 </div>
 <? endif;?>
+
+<div class="col s6">
+
+<iframe src="index.php?CGU" width="100%" height="415px"></iframe>
+<div class="">
+  <label>
+        <input type="checkbox" class="filled-in" checked="checked" />
+        <span class= "btn-small">Agree</span>
+      </label>
+</div>
+
+
+</div>
 </div>

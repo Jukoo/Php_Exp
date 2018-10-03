@@ -24,8 +24,12 @@
             <img src="public/img/jklogo.png">
                Jukoo
          </div></li>
-        <li><a href="index.php?OAuth" class="btn-small">sing Up</a></li>
+         <? if (!isset($_SESSION["surf"])) : ?>
+        <li><a href="index.php?OAuth" class="btn-small">sign Up</a></li>
         <li><a href="index.php?log" class="btn-small">Log In</a></li>
+      <? else : ?>
+       <li> <a href="index.php?DisOAuth"  class="btn-small orange darken-4 "> Log out </a></li>
+     <? endif ?>
       </ul>
     </div>
   </nav>
@@ -60,29 +64,60 @@
   </ul>
 </div>
 
-<? if(empty($_GET)):?>
-<div class="">
-<? else :?>
+<!--<div class="">-->
+
 <div class="container">
-<? endif ?>
   <div class="row">
-    <? if (isset($_GET["p"]) && !empty($_GET["p"])) : ?>
-    <div class="list-categories col s2  card small">
-      <h4>Profil</h4>
-      <div class="name">
-        <p>Nom : </p>
+    <? if(isset($_SESSION["surf"]) && !empty($_SESSION["surf"])) : ?>
+    <div class="col s3 ">
+  <h5 class="header"></h5>
+  <div class="card small">
+    <div class="card-image">
+      <img src="public/img/jklogo.png">
+    </div>
+
+
+      <div class="card-action grey darken-1">
+         <div class=" ">
+        <a class="waves-effect waves-light btn-tiny"><i class="material-icons left">settings_applications</i> Settings</a>
+         </div>
       </div>
-      <div class="">
-        <p>Email</p>
-      </div>
-      <div class="">
-        <p> <i class="small material-icons">local_grocery_store1 :1 <span id="purchase">0</span> </i> </p>
-      </div>
-      <div class="">
-        <p>Status : premium</p>
-      </div>
-  <button type="submit" class="btn  orange darken-4 ">Log Out <i class="small material-icons">trending_flat</i></button>
-     </div>
+  </div>
+
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="public/img/jklogo.png" alt="" class="circle">
+      <span class="title"> jukoo</span>
+
+      <p> current user <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle">local_grocery_store</i>
+      <span class="title"></span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">insert_chart</i>
+      <span class="title">Title</span>
+      <p>First Line <br>
+         Second Line
+      </p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+    <li class="collection-item avatar grey darken-1">
+      <i class="material-icons circle red btn-tiny ">settings_applications</i>
+      <a class = "btn-tiny " > <strong>Settings</strong></a>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+
+</div>
    <? endif ?>
 
     <?= $Contents ?>
@@ -143,5 +178,6 @@
            if (Es6support.isES6_supported()) console.log("yes")
 
           </script>
+
         </body>
         </html>

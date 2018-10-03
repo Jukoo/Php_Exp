@@ -1,58 +1,144 @@
 
-<? if (isset($_GET["p"])) : ?>
-  <div class=" col s2">
-  <div class="Items-views col s9">
-<? else :?>
     <div class="Items-views col s9">
-<?endif;?>
-      <h3> all products  go here : </h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-        mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-         ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-          mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-           ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-            mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-             ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-              mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-               ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                  mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                   ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                    mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                     ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                      mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                       ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                        mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                         ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eius
-                          mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                           ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <a href="index.php?OAuth">Singin or longin </a>
+        <h3> Store Room  </h3>
+    <div class="row">
 
+      <div class="col s6 ">
+    <h5 class="header">Orchide</h5>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
 
-<? if (!isset($_GET["p"])) : ?>
+          <a href="#"><span class="new badge red">Order</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+  <div class="card-image">
+    <img src="https://lorempixel.com/100/190/nature/">
+  </div>
+  <div class="card-stacked">
+    <div class="card-content">
+      <p>I am a very simple card. I am good at containing small bits of information.</p>
+    </div>
+    <div class="card-action">
+      <a href="#">This is a link</a>
+    </div>
+  </div>
+</div>
 </div>
 
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
 </div>
-  <? else :?>
-</div >
-<?endif;?>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
+</div>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
+</div>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
+</div>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
+</div>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="col s6">
+<h5 class="header">redflown</h5>
+<div class="card horizontal">
+<div class="card-image">
+  <img src="https://lorempixel.com/100/190/nature/">
+</div>
+<div class="card-stacked">
+  <div class="card-content">
+    <p>I am a very simple card. I am good at containing small bits of information.</p>
+  </div>
+  <div class="card-action">
+    <a href="#">This is a link</a>
+  </div>
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+
+
+</div>
