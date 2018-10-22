@@ -1,6 +1,6 @@
 <?
 #!/usr/bin/php7.2.5 
-#
+#Level access 1  :: samepath 
 require "accesStorage.php"; 
 
 /**
@@ -23,7 +23,7 @@ class RequestStorage extends Connexion {
      */ 
     public static function listAllitems ()  {
     
-    
+         # list all items in homepage  
     } 
 
     /**
@@ -31,7 +31,10 @@ class RequestStorage extends Connexion {
      * @param 
      * @return
      */ 
-    public static function showSingleOne (int $id){}
+    public static function showSingleOne (int $id){
+         
+        #if the user choose one to see 
+    }
 
     /**
      * Save new User in DataBase Storage 

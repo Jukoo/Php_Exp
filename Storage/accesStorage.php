@@ -1,5 +1,7 @@
 <?
 #!/usr/bin/php7.2.5
+# the connexion of the data Base 
+# level access : 2 
 require "Config/dbase/db.conf.php";
 
 /**

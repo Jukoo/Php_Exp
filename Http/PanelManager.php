@@ -1,14 +1,14 @@
 <? 
 require_once  "Storage/RequestStorage.php" ; 
-
+require "Middleware/dumpPic.php" ; 
 /**
  * @class PanelManager 
- * manage the content on backoffice 
+ * the controller of Admin manager  [ content on backoffice ]
  */ 
 
 class PanelManager {
 
-    const TEMPLATE_SRC  = "Resources/pages/Backoffice.php"  ; 
+    const TEMPLATE_SRC  = "Resources/pages/Manager/"  ; 
 
     /**
      * the Panel initializer for Administrating 
@@ -17,27 +17,25 @@ class PanelManager {
      *
      */ 
 
-     public static  function initializePannel () {
-        
-         return include self::TEMPLATE_SRC ; ; 
-     } 
 
+    #pour chaque url specifier le controler requis
+    #index.php?backoffice=typeOperation
     /**
      *
      *
      */ 
     public static function itemInsertion () {
      
-        
+        include self::TEMPLATE_SRC."Input.php" ; 
+
      }
-   
     /**
      *
      */
-    public static function Update () {
+    public static function Up2date () {
     
              
-    
+    include self::TEMPLATE_SRC."uptodate.php" ;  
     } 
 
     /**
@@ -45,7 +43,7 @@ class PanelManager {
      */
     public static function Deletation () {
     
-    
+    include self::TEMPLATE_SRC."throwOut.php" ; 
     }
 
     /**

@@ -1,4 +1,4 @@
-
+w
   <img src= "public/img/registernow.png" >
 <div class="row">
 

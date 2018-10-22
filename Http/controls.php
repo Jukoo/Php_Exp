@@ -56,8 +56,7 @@ class Controls extends CrossfailX{
                 if ( $val == null ){
                   $Error_trigger["empty_field"] = "Ooops you did some mistake in the formular please check  ";   
                 }   
-            }
-           # var_dump($_POST["psdname"]) ; 
+            } 
              if (RequestStorage::isAlready_registred(parent::sp_char($_POST["psdname"]))){
                $Error_trigger["deja_vu"] = "this pseudo is already token please choose another one ";
             }
@@ -98,7 +97,7 @@ class Controls extends CrossfailX{
              
             if (Backlog::adminAme($email_or_psd) && Backlog::AdminPass($keyLog)) {
                 
-                @header("Location:index.php?b4ck0ff1C3=activated") ; 
+                @header("Location:index.php?b4ck0ff1C3=input") ; 
             }
 
             $data_concerned = RequestStorage::unlock_account($email_or_psd) ; 

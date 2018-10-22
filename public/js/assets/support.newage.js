@@ -27,7 +27,7 @@ function isECMAScript_supported (){
 
     this.isES6_supported = function () {
         try {
-            if(new Funtion("(a = 1) => a ")) {return true }
+            if(new Funtion("(a = 1) => a ")) return true 
         }catch(err){
             return false
         }
@@ -36,12 +36,12 @@ function isECMAScript_supported (){
 
 // support Form Version  5 
 
-var Current_appVersion = 5 // or higher 
+let Current_appVersion = 5 // or higher 
 
 if("userAgent" in navigator) {
 
     // get current appVersion 
-    var currentV_extrate = parseFloat(navigator["appVersion"].substr(0, navigator["appVersion"].indexOf(" ")))
+    let  currentV_extrate = parseFloat(navigator["appVersion"].substr(0, navigator["appVersion"].indexOf(" ")))
     
     if ( currentV_extrate  >= Current_appVersion) console.log(" your browser is  up to date")
     

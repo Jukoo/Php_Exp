@@ -1,13 +1,13 @@
 <div class="row">
   <h5> Choose Mode  first </h5>
   <div class="input-field col s4 ">
-  <button type="button" class ="btn blue darken-3" ><i class="tiny material-icons">storage</i> + </button>
+  <button type="button" class ="btn blue  darken-3" ><i class="tiny material-icons"><a href="index.php?b4ck0ff1C3=input"> storage</a></i> + </button>
   </div>
   <div class="input-field col s4 ">
-  <button type="button" class ="btn disabled green darken-3" ><i class="large material-icons">update</i> ! </button>
+  <button type="button" class ="btn  green darken-3" ><i class="large material-icons"><a href="index.php?b4ck0ff1C3=u2d">update</a></i> ! </button>
   </div>
   <div class="input-field col s4 ">
-  <button type="button" class ="btn  disabled red darken-3" ><i class="medium material-icons">delete</i> - </button>
+  <button type="button" class ="btn   red darken-3" ><i class="medium material-icons"><a href="index.php?b4ck0ff1C3=del"> delete</a></i> - </button>
   </div>
     <form class="col s6" method ="POST" enctype="multipart/form-data">
       <div class="row">

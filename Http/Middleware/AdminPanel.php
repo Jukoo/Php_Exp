@@ -2,12 +2,12 @@
 require_once  "Authentification.php" ; 
 
 /**
- * WARNING !! this classs it's just a test to allow backoffice quickly 
+ * WARNING !! this class it's just a test to allow backoffice quickly 
  * without using .htaccess or data Storage 
  * @security { xtra low }
  * @class Backlog
  * the registration of the Admin control 
- * @depercation 
+ * @depercation : it 'll be removed on production 
  */
 
 class Backlog extends SecureAuth {  
